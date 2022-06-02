@@ -6,7 +6,7 @@ class RequestHandler{
     static getQueryString(query) {
         let result = '';
 
-        for (key in query) {
+        for (let key in query) {
             result += result ? '&' : '?';
             result += `${key}=${query[key]}`;
         }
