@@ -23,12 +23,13 @@
     flex-wrap: wrap;
 }
 
-.album_link {
+.album-item {
     text-decoration: none;
     padding-left: 10px;
+    cursor: pointer;
 }
 
-.album_link:hover {
+.album-item:hover {
     text-decoration: underline;
     color: red;
 }
