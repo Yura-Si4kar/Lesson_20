@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/ImagePreview.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js" defer></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" defer></script>
+    <script type="module" defer>
+        import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.esm.js";
+    </script>
     <script src="scripts/RequestHandler.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <title>JQuery_Gallery</title>
@@ -23,7 +26,7 @@
         <li class="album-item" data-id="{{id}}">{{title}}</li>
     </script>
     <script type="text/template" class="album_template">
-        <img class='photo' src="{{source}}" alt="{{title}}" data-url='{{url}}' data-fancybox>
+        <img class='photo' width='150' height='150' src="{{source}}" alt="{{title}}" data-url='{{url}}' data-fancybox="gallery">
     </script>
 </body>
 </html>

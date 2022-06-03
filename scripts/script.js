@@ -12,7 +12,6 @@ $(() => {
 
     const $galleryApi = new RequestHandler(GALLERY_URL);
     const $albumApi = new RequestHandler(PHOTOS_URL);
-    const $preview = new ImagePreview();
 
     $insert_block.on('click', onClickAction);
 
@@ -21,8 +20,12 @@ $(() => {
     let galleryList = [];
     let photoList = [];
 
+    Fancybox.bind("[data-fancybox]", {
+
+    });
+
     function init() {
-        fetchGalleryList();
+        fetchGalleryList();        // .then((galleryList) => fetchPhotosList(galleryList[0].id));
     }
 
     function fetchGalleryList() {
@@ -41,9 +44,11 @@ $(() => {
         }
 
         if (e.target.classList.contains(PHOTOS_CLASS)) {
-            const url = getPhotoUrl(e.target);
+            // const url = getPhotoUrl(e.target);
 
-            $preview.show(url);
+            Fancybox.bind("[data-fancybox]", {
+                
+            });
 
             e.preventDefault();
         }
@@ -69,18 +74,18 @@ $(() => {
         });
     }
 
-    function generate$photoEl(photos) {
+    function generatePhotoEl(photos) {
         return albumTemplate.replace('{{id}}', photos.id)
-            .replace('{{source}}', photos.thumbnailUrl)
+            .replace('{{source}}', photos.url)
             .replace('{{title}}', photos.title)
             .replace('{{url}}', photos.url);
     }
 
     function renderPhotoList() {
-        $photoEl.html(photoList.map(generate$photoEl).join('\n'));
+        $photoEl.html(photoList.map(generatePhotoEl).join('\n'));
     }
 
-    function getPhotoUrl(el) {
-        return el.dataset.url;
-    }
+    // function getPhotoUrl(el) {
+    //     return el.dataset.url;
+    // }
 });
