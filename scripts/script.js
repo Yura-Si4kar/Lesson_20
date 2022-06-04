@@ -19,12 +19,13 @@ $(() => {
     let photoList = [];
 
     function init() {
-        fetchGalleryList();        // .then((galleryList) => fetchPhotosList(galleryList[0].id));
+        fetchGalleryList();
     }
 
     function fetchGalleryList() {
         return $galleryApi.getList().then((data) => {
             galleryList = data;
+            fetchPhotosList(galleryList[0].id);
             renderList();
         })
     }
