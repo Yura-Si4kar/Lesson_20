@@ -15,6 +15,10 @@ $(() => {
 
     $insert_block.on('click', onClickAction);
 
+    Fancybox.bind("[data-fancybox]", {
+        
+    });
+
     init();
 
     let galleryList = [];
@@ -44,11 +48,7 @@ $(() => {
         }
 
         if (e.target.classList.contains(PHOTOS_CLASS)) {
-            // const url = getPhotoUrl(e.target);
-
-            Fancybox.bind("[data-fancybox]", {
-                
-            });
+            const url = getPhotoUrl(e.target);
 
             e.preventDefault();
         }
@@ -85,7 +85,7 @@ $(() => {
         $photoEl.html(photoList.map(generatePhotoEl).join('\n'));
     }
 
-    // function getPhotoUrl(el) {
-    //     return el.dataset.url;
-    // }
+    function getPhotoUrl(el) {
+        return el.dataset.url;
+    }
 });
